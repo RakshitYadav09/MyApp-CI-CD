@@ -1,0 +1,15 @@
+{
+  "name": "myapp-ci-cd",
+  "version": "1.0.0",
+  "description": "A simple Node.js project for CI/CD pipeline testing",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest --coverage",
+    "build": "echo 'Build step placeholder'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
