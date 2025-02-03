@@ -9,7 +9,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/RakshitYadav09/MyApp-CI-CD.git'
+                script {
+                    // Ensuring we fetch the correct branch (main)
+                    checkout([
+                        $class: 'GitSCM', 
+                        branches: [[name: '*/main']],  // Change 'main' to your branch if necessary
+                        userRemoteConfigs: [[url: 'https://github.com/RakshitYadav09/MyApp-CI-CD.git']]
+                    ])
+                }
             }
         }
 
@@ -34,7 +41,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "Deploying application..."
-                // Add deployment steps
+                // Add deployment steps here
             }
         }
     }
