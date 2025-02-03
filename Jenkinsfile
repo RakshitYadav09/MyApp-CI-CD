@@ -13,7 +13,7 @@ pipeline {
                     // Ensuring we fetch the correct branch (main)
                     checkout([
                         $class: 'GitSCM', 
-                        branches: [[name: '*/main']],  // Change 'main' to your branch if necessary
+                        branches: [[name: '*/main']],  // Ensure this matches your branch name
                         userRemoteConfigs: [[url: 'https://github.com/RakshitYadav09/MyApp-CI-CD.git']]
                     ])
                 }
@@ -22,26 +22,26 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                bat 'npm install'  // Use `sh` if on Linux/macOS
             }
         }
 
         stage('Build') {
             steps {
-                sh 'npm run build'
+                bat 'npm run build'  // Use `sh` if on Linux/macOS
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm test'
+                bat 'npm test'  // Use `sh` if on Linux/macOS
             }
         }
 
         stage('Deploy') {
             steps {
-                echo "Deploying application..."
-                // Add deployment steps here
+                echo "Deploying application..."  // Replace with actual deploy steps
+                // Example: sh 'deploy-command'
             }
         }
     }
