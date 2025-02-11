@@ -1,9 +1,9 @@
 pipeline {
-    agent any
+    agent any // This means the pipeline can run on any available agent.
 
     environment {
-        NODEJS_HOME = tool 'NodeJS'
-        PATH = "${NODEJS_HOME}/bin:${env.PATH}"
+        NODEJS_HOME = tool 'NodeJS'  // Fetch the NodeJS tool configured in Jenkins
+        PATH = "${NODEJS_HOME}/bin:${env.PATH}"  // Update PATH to include Node.js binaries
     }
 
     stages {
